@@ -1,21 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { fallback, zodValidator } from "@tanstack/zod-adapter";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Eye, Info } from "lucide-react";
 import { useCallback, useMemo, useState } from "react";
-import { z } from "zod";
 import { PageHero } from "@/components/CtaBand";
 import { ProductModal } from "@/components/ProductModal";
 import { categories, categoryName, isCategorySlug, products, type Product } from "@/data/products";
 import { images } from "@/data/images";
 import { pageHead } from "@/lib/seo";
 
-const searchSchema = z.object({
-  category: fallback(z.string().optional(), undefined),
-});
+const str = (v: unknown) => (typeof v === "string" && v ? v : undefined);
 
 export const Route = createFileRoute("/products")({
-  validateSearch: zodValidator(searchSchema),
+  validateSearch: (s: Record<string, unknown>): { category?: string | undefined } => ({ category: str(s["category"]) }),
   head: () => pageHead({
     title: "Apparel Collection — T-Shirts, Hoodies, Tracksuits, Sweatshirts",
     description: "Explore illustrative custom-manufactured t-shirts, hoodies, tracksuits and sweatshirts developed around your brand, specifications and market.",
@@ -75,12 +71,12 @@ function ProductsPage() {
                 layout={!reduce}
                 initial={reduce ? false : { opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={reduce ? undefined : { opacity: 0, scale: 0.96 }}
+                exit={{ opacity: 0, scale: reduce ? 1 : 0.96 }}
                 transition={{ duration: 0.3 }}
                 className="group flex flex-col"
               >
                 <button type="button" onClick={() => setSelected(p)} className="relative block overflow-hidden rounded-lg bg-graphite text-left" aria-label={`Quick view: ${p.name}`}>
-                  <img src={p.images[0].src} alt={p.images[0].alt} width={p.images[0].w} height={p.images[0].h} loading="lazy" className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img src={p.images[0]!.src} alt={p.images[0]!.alt} width={p.images[0]!.w} height={p.images[0]!.h} loading="lazy" className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   <span className="absolute left-3 top-3 rounded-full bg-paper/90 px-3 py-1 eyebrow text-[0.6rem] text-ink">{categoryName(p.category)}</span>
                   <span className="absolute inset-x-3 bottom-3 flex items-center justify-center gap-2 rounded bg-ink/90 py-3 text-sm font-semibold text-paper opacity-100 transition md:translate-y-2 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100">
                     <Eye size={16} aria-hidden /> Quick view

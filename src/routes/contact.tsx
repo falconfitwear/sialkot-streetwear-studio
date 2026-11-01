@@ -1,21 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { fallback, zodValidator } from "@tanstack/zod-adapter";
 import { AlertCircle, CheckCircle2, Globe2, Loader2, Mail, MapPin, MessageCircle, Phone, Info } from "lucide-react";
 import { useRef, useState, type FormEvent } from "react";
-import { z } from "zod";
 import { PageHero } from "@/components/CtaBand";
 import { Reveal } from "@/components/Reveal";
 import { emailLink, hasValue, site, whatsappLink } from "@/config/site";
 import { inquirySchema, productCategories, quantityOptions, slugToCategory, type Inquiry } from "@/lib/inquiry";
 import { pageHead } from "@/lib/seo";
 
-const searchSchema = z.object({
-  category: fallback(z.string().optional(), undefined),
-  product: fallback(z.string().optional(), undefined),
-});
+const str = (v: unknown) => (typeof v === "string" && v ? v : undefined);
 
 export const Route = createFileRoute("/contact")({
-  validateSearch: zodValidator(searchSchema),
+  validateSearch: (s: Record<string, unknown>): { category?: string | undefined; product?: string | undefined } => ({ category: str(s["category"]), product: str(s["product"]) }),
   head: () => pageHead({
     title: "Contact — Request a Quote",
     description: "Tell us about your apparel requirements. Request a quote for custom t-shirts, hoodies, tracksuits and sweatshirts with worldwide export.",
@@ -123,7 +118,7 @@ function ContactPage() {
               <Field label="Company / Brand" name="company" error={errors.company} required><input {...field("company")} autoComplete="organization" maxLength={120} /></Field>
               <Field label="Business Email" name="email" error={errors.email} required><input {...field("email")} type="email" autoComplete="email" maxLength={255} /></Field>
               <Field label="Country" name="country" error={errors.country} required><input {...field("country")} autoComplete="country-name" maxLength={80} /></Field>
-              <Field label="Product Category" name="category" error={errors.category} required>
+              <Field label="Product Category" name="category" error={errors["category"]} required>
                 <select {...field("category")} defaultValue={initialCategory}>
                   <option value="" disabled>Select a category</option>
                   {productCategories.map((c) => <option key={c} value={c}>{c}</option>)}
@@ -174,7 +169,7 @@ function ContactPage() {
   );
 }
 
-function Field({ label, name, error, required, hint, children }: { label: string; name: string; error?: string; required?: boolean; hint?: string; children: React.ReactNode }) {
+function Field({ label, name, error, required, hint, children }: { label: string; name: string; error?: string | undefined; required?: boolean; hint?: string | undefined; children: React.ReactNode }) {
   return (
     <div>
       <label htmlFor={name} className="mb-2 block text-sm font-semibold">

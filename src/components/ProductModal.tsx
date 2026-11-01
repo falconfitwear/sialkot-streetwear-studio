@@ -22,7 +22,7 @@ export function ProductModal({ product, onClose }: { product: Product | null; on
       if (e.key !== "Tab" || !dialogRef.current) return;
       const f = dialogRef.current.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])');
       if (!f.length) return;
-      const first = f[0], last = f[f.length - 1];
+      const first = f[0]!, last = f[f.length - 1]!;
       if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     };
@@ -49,7 +49,7 @@ export function ProductModal({ product, onClose }: { product: Product | null; on
             aria-modal="true"
             aria-labelledby="pm-title"
             aria-describedby="pm-desc"
-            initial={reduce ? false : { y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={reduce ? undefined : { y: 40, opacity: 0 }}
+            initial={reduce ? false : { y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: reduce ? 0 : 40, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="relative grid max-h-[92dvh] w-full max-w-5xl overflow-y-auto rounded-t-xl bg-paper md:grid-cols-2 md:rounded-xl"
           >
@@ -58,7 +58,7 @@ export function ProductModal({ product, onClose }: { product: Product | null; on
             </button>
             <div className="bg-graphite p-3 md:p-4">
               <div className="aspect-[4/5] overflow-hidden rounded-lg bg-ink">
-                <img src={product.images[active].src} alt={product.images[active].alt} width={product.images[active].w} height={product.images[active].h} className="h-full w-full object-cover" />
+                <img src={(product.images[active] ?? product.images[0]!).src} alt={(product.images[active] ?? product.images[0]!).alt} width={(product.images[active] ?? product.images[0]!).w} height={(product.images[active] ?? product.images[0]!).h} className="h-full w-full object-cover" />
               </div>
               <div className="mt-3 grid grid-cols-3 gap-2" role="group" aria-label="Product images">
                 {product.images.map((img, i) => (

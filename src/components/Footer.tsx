@@ -1,14 +1,14 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, MessageCircle, Music2, Phone } from "lucide-react";
+import { AtSign, Globe, Link2, Mail, MapPin, MessageCircle, Music2, Phone } from "lucide-react";
 import { emailLink, hasValue, site, whatsappLink } from "@/config/site";
 import { categories } from "@/data/products";
 import { navItems } from "./Header";
 import { Wordmark } from "./Wordmark";
 
 const socials = [
-  { key: "instagram", label: "Instagram", Icon: Instagram },
-  { key: "facebook", label: "Facebook", Icon: Facebook },
-  { key: "linkedin", label: "LinkedIn", Icon: Linkedin },
+  { key: "instagram", label: "Instagram", Icon: AtSign },
+  { key: "facebook", label: "Facebook", Icon: Globe },
+  { key: "linkedin", label: "LinkedIn", Icon: Link2 },
   { key: "tiktok", label: "TikTok", Icon: Music2 },
 ] as const;
 
