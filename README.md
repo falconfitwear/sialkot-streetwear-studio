@@ -1,14 +1,33 @@
-# Welcome to your Lovable project
+# Sialkot Streetwear Studio
+
+Build the COMPLETE V1 multi-page static React+TypeScript+Vite+Tailwind+Lucide+Framer Motion website for FALCON FIT WEAR. This is an implementation task, NOT a plan or one-page mockup. Implement all pages, components, image assets, structured data and interactions now. No database, authentication, checkout, backend, invented information, fabricated proof or numerical business metrics.
+
+BRAND: FALCON FIT WEAR; descriptor APPAREL MANUFACTURING & EXPORT; tagline "Crafting Quality. Manufacturing Identity."; location Sialkot Pakistan; premium streetwear/custom apparel manufacturing/private label/worldwide export; target US brands, wholesale buyers. Centralize ALL brand/domain/contact/social placeholders, configurable WhatsApp number, optional Formspree endpoint in src/config/site.ts; empty placeholder values should suppress broken links. Centralize temporary photo references in src/data/images.ts, consistent high-quality editorial fashion/fabric/process photos (non-branded, never imply actual factory/client work). Organize and make imagery easy to replace.
+
+VISUAL: Sophisticated editorial international supplier aesthetic: near black #111214, graphite #202226, off-white #F4F3EF, restrained electric lime #B8E34B. Bold typography, generous space, strong hierarchy, beautiful desktop hero with premium streetwear photographic composition, tailored mobile experience, polished cards, tasteful hover and reveal transitions, reduced-motion support. Text-only wordmark (no bird mascot). Navigation sticky, active links, working mobile menu, shared responsive footer. Route 404. Do not make generic e-commerce site.
+
+ROUTES:
+ / HOME: hero primary headline "Premium Streetwear Manufacturing. Built Around Your Brand.", hero copy "Custom apparel manufacturing and worldwide export for clothing brands, retailers and bulk buyers.", location "Sialkot, Pakistan | Worldwide Export", CTA "Explore Our Collection" /products and "Start Your Project" /contact. Introduction heading "Your Vision. Our Manufacturing Expertise." with credible custom manufacturing/private label/export explanation. Four image category cards (T-Shirts, Hoodies, Tracksuits, Sweatshirts) with descriptions and links to corresponding /products?category=... filtering. Capabilities: Cut & Sew Manufacturing, Screen Printing, Embroidery, DTF / Heat Transfer, Sublimation, Private Label / Custom Branding, Custom Sizing & Patterns; subject to garment requirements. Customization showcase: fabrics, fit/sizing, colors, print/embroidery, labels, hangtags/packaging; informative, not operational configurator. Five feature blocks: custom apparel development, brand focused manufacturing, sampling available, quality-focused production, worldwide export. 6-step intended workflow: Share Requirements; Product Development & Specifications; Sampling; Bulk Production; Quality Review; Export & Delivery. End CTA heading "Ready to Build Your Next Collection?" description "Let's discuss your designs, specifications and bulk apparel requirements."; Request a Quote / Contact Our Team. Footer comprehensive with contact/social placeholders shown only when values exist.
+
+ /products: heading "Explore Our Apparel Collection"; subtext "Discover custom-manufactured apparel designed around your brand, specifications and market." Filter All + four categories with URL query param and back/forward support. 16 illustrative structured products: 4 T-Shirts (Oversized, Regular Fit, Heavyweight, Printed & Embroidered); 4 Hoodies (Pullover, Zip-Up, Oversized, Heavyweight Fleece); 4 Tracksuits (Matching Sets, Zip-Up, Hoodie & Jogger, Custom); 4 Sweatshirts (Crewneck, Oversized, Fleece, Custom Printed). Product data: ID/name/category/description/images/fitOptions/customizationOptions/optional specs. Photographic cards, working quick-view accessible modal, image thumbnails and switching, descriptions, fit/customization, "Custom specifications available on request" not invented numerical specifications; Request Pricing navigates /contact?category=...&product=... and prefills relevant inquiry details. Note illustrative designs, not stock or guaranteed availability. No invented prices/GSM/MOQ.
+
+ /manufacturing: heading "From Concept to Custom Apparel."; supporting "Apparel manufacturing solutions designed to bring your brand's ideas to life." Cover 9 genuine capability sections: Custom Apparel Manufacturing, Cut & Sew, Fabric and Garment Customization, Printing and Embroidery (incl screen print/DTF/heat transfer/sublimation), Private Label & Branding, Sizing & Patterns, Sampling & Product Development, Quality-Focused Production Approach, Worldwide Export. Image gallery fabrics, stitching, printing, embroidery, labels, finished garments, packaging. Photos illustrative, don't imply ownership of facility, workforce or actual completed orders. CTA "Have a Product in Mind? Let's Develop It Together." -> contact.
+
+ /about: heading "Apparel Manufacturing with a Brand-First Approach."; intro "Based in Sialkot, Pakistan, Falcon Fit Wear focuses on custom apparel manufacturing and worldwide export, helping clothing brands develop products that reflect their identity and market requirements." Sections Who We Are, What We Manufacture, Our Approach, Customization & Private Label, Our Commitment to Quality, International Market Focus. Buyer oriented and sober credible. Never invent founding year, staff, experience duration, production capacity, certs, clientele, testimonials, factory ownership/history.
+
+ /contact: heading "Let's Build Something Together."; supporting "Tell us about your apparel requirements. Our team is ready to discuss your next collection and bulk order." B2B accessible form Full Name (required), Company/Brand (required), Business Email (required valid), Country (required), Product Category (required; T-Shirts/Hoodies/Tracksuits/Sweatshirts/Other Custom), Estimated Order Quantity (required; Below 100, 100–300, 301–500, 501–1,000, 1,000+, Not yet decided), Customization Requirements (required), Project Description (required), Expected Delivery Timeline (optional). Clear MOQ/product feasibility subject to specs. Integration-ready POST to configurable Formspree endpoint; real validation/loading/error/success only after actual successful remote response. If endpoint unset, show HONEST meaningful in-form notification "Online form submissions are not yet configured. Please use the contact methods when available." and do NOT fake success. Configurable WhatsApp deep link with encoded prefill only when actual number configured; contact email links only when configured. Contact location Sialkot Pakistan, worldwide export. Pass product/category query info to form.
+
+IMPLEMENT: React Router proper routes, semantic HTML, keyboard focus/trap/escape modal, accessible nav/mobile, reveal effects with reduced-motion preference, functional back-to-top, URL filter/deep-links, no dead placeholder buttons, responsive imagery/lazy loading (hero eager). Basic per-route SEO titles/descriptions, OG metadata, placeholder favicon, clean architecture ready for added categories (V2+ not displayed). Use restrained consistent photography, no third-party brand logos. No lorem ipsum. Include static-host routing fallback instructions in README and configurable metadata domain only from config. No unused e-commerce features. Ensure TypeScript builds successfully and fix all bugs, links, navigation, modal/gallery, filtering, validation, errors, mobile. Deliver all five pages in the initial build. In your response report implemented files, verification results and configuration instructions, do not say complete until it really is.
 
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/2f6e1bc3-a447-4017-854d-681022097adc).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +39,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
