@@ -11,7 +11,7 @@ import { pageHead } from "@/lib/seo";
 const str = (v: unknown) => (typeof v === "string" && v ? v : undefined);
 
 export const Route = createFileRoute("/products")({
-  validateSearch: (s: Record<string, unknown>): { category?: string | undefined } => ({ category: str(s.category) }),
+  validateSearch: (s: Record<string, unknown>): { category?: string | undefined } => ({ category: str(s["category"]) }),
   head: () => pageHead({
     title: "Apparel Collection — T-Shirts, Hoodies, Tracksuits, Sweatshirts",
     description: "Explore illustrative custom-manufactured t-shirts, hoodies, tracksuits and sweatshirts developed around your brand, specifications and market.",
@@ -71,7 +71,7 @@ function ProductsPage() {
                 layout={!reduce}
                 initial={reduce ? false : { opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={reduce ? undefined : { opacity: 0, scale: 0.96 }}
+                exit={{ opacity: 0, scale: reduce ? 1 : 0.96 }}
                 transition={{ duration: 0.3 }}
                 className="group flex flex-col"
               >

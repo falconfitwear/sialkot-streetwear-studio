@@ -10,7 +10,7 @@ import { pageHead } from "@/lib/seo";
 const str = (v: unknown) => (typeof v === "string" && v ? v : undefined);
 
 export const Route = createFileRoute("/contact")({
-  validateSearch: (s: Record<string, unknown>): { category?: string | undefined; product?: string | undefined } => ({ category: str(s.category), product: str(s.product) }),
+  validateSearch: (s: Record<string, unknown>): { category?: string | undefined; product?: string | undefined } => ({ category: str(s["category"]), product: str(s["product"]) }),
   head: () => pageHead({
     title: "Contact — Request a Quote",
     description: "Tell us about your apparel requirements. Request a quote for custom t-shirts, hoodies, tracksuits and sweatshirts with worldwide export.",
@@ -118,7 +118,7 @@ function ContactPage() {
               <Field label="Company / Brand" name="company" error={errors.company} required><input {...field("company")} autoComplete="organization" maxLength={120} /></Field>
               <Field label="Business Email" name="email" error={errors.email} required><input {...field("email")} type="email" autoComplete="email" maxLength={255} /></Field>
               <Field label="Country" name="country" error={errors.country} required><input {...field("country")} autoComplete="country-name" maxLength={80} /></Field>
-              <Field label="Product Category" name="category" error={errors.category} required>
+              <Field label="Product Category" name="category" error={errors["category"]} required>
                 <select {...field("category")} defaultValue={initialCategory}>
                   <option value="" disabled>Select a category</option>
                   {productCategories.map((c) => <option key={c} value={c}>{c}</option>)}
