@@ -4,6 +4,7 @@ import { emailLink, hasValue, site, whatsappLink } from "@/config/site";
 import { categories } from "@/data/products";
 import { navItems } from "./Header";
 import { Wordmark } from "./Wordmark";
+import { ImageLogo } from "./ImageLogo";
 
 const socials = [
   { key: "instagram", label: "Instagram", Icon: AtSign },
@@ -20,7 +21,7 @@ export function Footer() {
     <footer className="bg-ink text-paper">
       <div className="container-x grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-12">
         <div className="lg:col-span-4">
-          <Wordmark />
+          <ImageLogo />
           <p className="mt-6 max-w-sm font-display text-2xl font-bold leading-tight">{site.tagline}</p>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-muted">
             Custom apparel manufacturing, private label production and worldwide export for clothing brands, retailers and bulk buyers.
