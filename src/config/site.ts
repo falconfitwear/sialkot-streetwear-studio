@@ -16,18 +16,18 @@ export const site = {
 
   contact: {
     /** Business email, e.g. "info@falconfitwear.com" */
-    email: "",
+    email: "arslan.qasrelibas@gmail.com",
     /** Display phone, e.g. "+92 300 0000000" */
-    phone: "",
+    phone: "+92 323 2443987",
     /** WhatsApp number in international format, digits only, e.g. "923000000000" */
-    whatsapp: "",
+    whatsapp: "923232443987",
     whatsappMessage:
       "Hello Falcon Fit Wear, I'd like to discuss a custom apparel manufacturing project.",
   },
 
   social: {
-    instagram: "",
-    facebook: "",
+    instagram: "https://www.instagram.com/falconfitwearofficial",
+    facebook: "https://www.facebook.com/profile.php?id=61594426614311",
     linkedin: "",
     tiktok: "",
   },
