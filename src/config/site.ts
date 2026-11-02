@@ -33,7 +33,7 @@ export const site = {
   },
 
   /** Formspree endpoint, e.g. "https://formspree.io/f/xxxxxxx". Leave empty to disable online submissions. */
-  formspreeEndpoint: "",
+  formspreeEndpoint: "https://formspree.io/f/mljjopov",
 } as const;
 
 export const hasValue = (v: string | undefined | null): v is string =>
