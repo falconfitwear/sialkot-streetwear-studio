@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Wordmark } from "./Wordmark";
+import { ImageLogo } from "./ImageLogo";
 
 export const navItems = [
   { to: "/", label: "Home" },
@@ -39,7 +40,7 @@ export function Header() {
     <header className={`sticky top-0 z-40 border-b transition-colors ${scrolled || open ? "border-ink-border bg-ink/95 backdrop-blur" : "border-transparent bg-ink"}`}>
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-lime focus:px-3 focus:py-2 focus:text-ink">Skip to content</a>
       <div className="container-x flex h-18 items-center justify-between py-4">
-        <Wordmark />
+        <ImageLogo />
         <nav aria-label="Primary" className="hidden lg:block">
           <ul className="flex items-center gap-8">
             {navItems.map((n) => (
